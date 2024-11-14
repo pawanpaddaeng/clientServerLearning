@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -28,11 +27,11 @@ public class Server {
                 thread.start();
             }
         } catch (IOException e) {
-
+            closeServerSocket();
         }
     }
 
-    public void closeServerSocker() {
+    public void closeServerSocket() {
         try {
             if(serverSocket != null) {
                 serverSocket.close();
@@ -44,7 +43,7 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(1234, 50, InetAddress.getByName("0.0.0.0"));
+        ServerSocket serverSocket = new ServerSocket(1234);
         Server server = new Server(serverSocket);
         server.startServer();
     }

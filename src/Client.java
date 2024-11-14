@@ -83,7 +83,7 @@ public class Client {
         String username = scanner.nextLine();
 
         //need to make a connection to the server
-        Socket socket = new Socket("108.180.157.93", 1234);
+        Socket socket = new Socket("128.189.73.220", 1234);
         Client client = new Client(socket, username);
         client.listenforMessages();
         client.sendMessage();
